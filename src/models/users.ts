@@ -40,6 +40,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("Users", userSchema);
+export const User = model("Users", userSchema);
 
 exports.User = User;

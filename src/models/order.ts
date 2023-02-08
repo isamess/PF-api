@@ -18,6 +18,6 @@ const orderSchema = new Schema(
   { timestamps: true }
 );
 
-const Order = model("Order", orderSchema);
+export const Order = model("Order", orderSchema);
 
 exports.Order = Order;
