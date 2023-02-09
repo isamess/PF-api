@@ -3,8 +3,6 @@ import config from "./config";
 import dotenv from "dotenv";
 
 dotenv.config();
-const DB_DEPLOY= process.env.DB_DEPLOY
-const port= process.env.PORT
 
 //data base local
 
@@ -17,16 +15,12 @@ const dataBase = (async () => {
     const db = await mongoose.connect(
       `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@clusterpf-henrysmerch.wibjaod.mongodb.net/?retryWrites=true&w=majority`,
       mongooseOptions
-
-     
     );
     console.log("Our glorious Database is connected to:", db.connection.name);
-    // console.log("Our glorious Database is connected to:", port);
   } catch (error) {
     console.log(error);
   }
 })();
-
 //database deploy
 
 // const dataBase = (async () => {
