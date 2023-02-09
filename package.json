@@ -6,7 +6,7 @@
   
   "scripts": {
     "build": "node index.ts",
-    "start": "ts-node --transpile-only src/index.ts"
+    "start": "ts-node --transpile-only index.ts"
   },
   "keywords": [],
   "author": "pf-soyhenry-g2",
