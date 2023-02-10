@@ -16,6 +16,13 @@ const dataBase = (async () => {
       `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@clusterpf-henrysmerch.wibjaod.mongodb.net/?retryWrites=true&w=majority`,
       mongooseOptions
     );
+ // Renaming _id to id
+    mongoose.set("toJSON", {
+      virtuals: true,
+      transform: (_: any, converted: any) => {
+        delete converted._id;
+      },
+    });
     console.log("Our glorious Database is connected to:", db.connection.name);
   } catch (error) {
     console.log(error);

@@ -1,8 +1,8 @@
 import { RequestHandler, Router } from "express"; // el RequestHandler ayuda a que se reconozca el request
-import Products from "../models/products";
-import Category from "../models/categories";
-import cloudinary, { uploadImage, deleteImage } from "../utils/cloudinary";
-import { isAdmin } from "../middleware/auth";
+import Products from "./models/products";
+import Category from "./models/categories";
+import cloudinary, { uploadImage, deleteImage } from "./utils/cloudinary";
+import { isAdmin } from "./middleware/auth";
 import fs from "fs-extra"; //fs-extra me ayuda a eliminar archivos y soporta promesas
 
 const router = Router();
@@ -175,3 +175,4 @@ router.get("/category/find", async (req: any, res: any) => {
 });
 
 module.exports = router;
+
