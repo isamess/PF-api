@@ -5,7 +5,7 @@
   "main":"dist/app.js",
   
   "scripts": {
-    "build": "node src/index.ts",
+    "build": "node dist/index.js",
     "start": "tsc && node dist/index.js",
     "dev": "ts-node-dev --respawn --clear --transpile-only --ignore-watch node_modules src/index.ts"
   },

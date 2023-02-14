@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+const path = require('path');
 // import fs from 'fs'
 // import path, { dirname } from 'path'
 import product from "./models/products";
@@ -32,6 +33,7 @@ app.use(express.json({ limit: "10mb" })); // para poder entender los obj json cu
 app.use(express.urlencoded({ extended: true, limit: "10mb" })); // para que pueda entender los campos que llegan desde el formulario
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
+
 app.set("view engine", "ejs"); // se ve en el vistas carpeta para las plantillas que hacen.
 
 app.use("/api/register", register);
@@ -40,6 +42,12 @@ app.use("/api/stripe", stripe);
 app.use("/api/products", products);
 app.use("/api/users", users);
 app.use("/api/orders", orders);
+
+if (process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/buid'))
+};
+app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
+  
 
 app.get("/products", (req, res) => {
   try {

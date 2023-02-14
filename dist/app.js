@@ -10,6 +10,7 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const path = require('path');
 // import fs from 'fs'
 // import path, { dirname } from 'path'
 const products_1 = __importDefault(require("./models/products"));
@@ -39,6 +40,11 @@ app.use("/api/stripe", stripe);
 app.use("/api/products", products);
 app.use("/api/users", users);
 app.use("/api/orders", orders);
+if (process.env.NODE_ENV === 'production') {
+    app.use(express_1.default.static('client/buid'));
+}
+;
+app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')));
 app.get("/products", (req, res) => {
     try {
         products_1.default.find({}).then((product) => {
