@@ -25,10 +25,10 @@ const userSchema = new Schema(
       maxlength: 1024,
       trim: true,
     },
-    address: {
-      type: String,
-      required: false,
-    },
+    // address: {
+    //   type: String,
+    //   required: false,
+    // },
     isAdmin: {
       type: Boolean,
       default: false,
