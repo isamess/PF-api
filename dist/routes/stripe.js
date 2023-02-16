@@ -106,7 +106,7 @@ router.post("/create-checkout-session", (req, res) => __awaiter(void 0, void 0, 
                     images: [item.image],
                     description: item.desc,
                     metadata: {
-                        id: item._id,
+                        id: item.id,
                     },
                 },
                 unit_amount: (item.price * 100).toFixed(0),

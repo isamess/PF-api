@@ -24,7 +24,7 @@ router.get("/stats", isAdmin, async (req: any, res: any) => {
       },
       {
         $group: {
-          _id: "$month",
+          id: "$month",
           total: { $sum: 1 },
         },
       },

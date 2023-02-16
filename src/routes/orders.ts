@@ -71,7 +71,7 @@ router.get("/income/stats", isAdmin, async (req: any, res: any) => {
       },
       {
         $group: {
-          _id: "$month",
+          id: "$month",
           total: { $sum: "$sales" },
         },
       },
@@ -101,7 +101,7 @@ router.get("/week-sales", isAdmin, async (req: any, res: any) => {
       },
       {
         $group: {
-          _id: "$day",
+          id: "$day",
           total: { $sum: "$sales" },
         },
       },

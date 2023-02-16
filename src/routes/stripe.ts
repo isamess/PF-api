@@ -104,7 +104,7 @@ router.post("/create-checkout-session", async (req: any, res: any) => {
           images: [item.image],
           description: item.desc,
           metadata: {
-            id: item._id,
+            id: item.id,
           },
         },
         unit_amount: (item.price * 100).toFixed(0),
@@ -210,9 +210,9 @@ router.post(
     const sig = req.headers["stripe-signature"];
 
     let data: any;
-    let eventType;
+    let eventType: string;
 
-    let event;
+    let event: { data: { object: any; }; type: string; };
 
     try {
       event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);

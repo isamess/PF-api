@@ -31,7 +31,7 @@ router.get("/stats", isAdmin, (req, res) => __awaiter(void 0, void 0, void 0, fu
             },
             {
                 $group: {
-                    _id: "$month",
+                    id: "$month",
                     total: { $sum: 1 },
                 },
             },

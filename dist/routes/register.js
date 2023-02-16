@@ -20,7 +20,7 @@ router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         name: Joi.string().min(3).max(30).required(),
         email: Joi.string().required().email(),
         password: Joi.string().min(8).required(),
-        adress: Joi.string().required(),
+        adress: Joi.string(),
     });
     const { error } = schema.validate(req.body);
     if (error)

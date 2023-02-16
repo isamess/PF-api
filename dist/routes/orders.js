@@ -75,7 +75,7 @@ router.get("/income/stats", isAdmin, (req, res) => __awaiter(void 0, void 0, voi
             },
             {
                 $group: {
-                    _id: "$month",
+                    id: "$month",
                     total: { $sum: "$sales" },
                 },
             },
@@ -103,7 +103,7 @@ router.get("/week-sales", isAdmin, (req, res) => __awaiter(void 0, void 0, void 
             },
             {
                 $group: {
-                    _id: "$day",
+                    id: "$day",
                     total: { $sum: "$sales" },
                 },
             },
